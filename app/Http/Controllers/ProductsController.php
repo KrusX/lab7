@@ -9,9 +9,7 @@ class ProductsController extends Controller
 {
     public function index()
    {
-       $products = cache()->remember('homepage-main', 60*60*24, function() {
-           return Product::all();
-       });
+       $products = Product::all();
 
        return view('products', compact('products'));
    }
